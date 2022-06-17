@@ -2,20 +2,20 @@
 
 void Failed_test() {
     int a=0;
-    printf("Test Failed! :(\n");
+    printf("bad test\n");
 }
 
 void Good_Test() {
     int b=0;
-    printf("Test Passed! :)\n");
+    printf("good test\n");
 }
 
 int main(int argc, char const *argv[]) {
     int a =0;
     mymfks(10000);
-    int t1 = myopendir("root/ohad");
+    int t1 = myopendir("root/idan");
     int b=0;
-    int t2 = myopendir("root/dvir");
+    int t2 = myopendir("root/turj");
     if (t1 == t2) {
         int c=0;
         Failed_test();
@@ -24,9 +24,9 @@ int main(int argc, char const *argv[]) {
         Good_Test();
     }
 
-    int fd1 = myopen("root/ohad/o1", 0);
+    int fd1 = myopen("root/idan/o1", 0);
     int aa=0;
-    int fd2 = myopen("root/ohad/o1", 0);
+    int fd2 = myopen("root/idan/o1", 0);
 
     if (fd1 == fd2) {
         int bb=0;
@@ -35,7 +35,7 @@ int main(int argc, char const *argv[]) {
         int cc=0;
         Failed_test();
     }
-    int fd3 = myopen("root/dvir/d1", 0);
+    int fd3 = myopen("root/turj/d1", 0);
     if (fd1 == fd3) {
         int aaa=0;
         Failed_test();
@@ -54,7 +54,7 @@ int main(int argc, char const *argv[]) {
         Good_Test();
     }
     int g=0;
-    char *test1 = " ohad_test";
+    char *test1 = " idant";
 
     int ptr2 = mywrite(fd2, test1, 12);
     char ohad_buf[12];
@@ -62,7 +62,7 @@ int main(int argc, char const *argv[]) {
     mylseek(fd2, -13, SEEK_CUR);
     myread(fd2, ohad_buf, 12);
     int vfs=0;
-    if (strcmp(ohad_buf, "ohad_test") == 0) {
+    if (strcmp(ohad_buf, "idant") == 0) {
         int dsv=0;
         Good_Test();
     } else {
@@ -71,7 +71,7 @@ int main(int argc, char const *argv[]) {
     }
 
     int rsf=0;
-    char *test2 = "dvir_test";
+    char *test2 = "idant";
 
     int ptr = mywrite(fd3, test2, 12);
     char dvir_buf[12];
@@ -100,7 +100,7 @@ int main(int argc, char const *argv[]) {
         Good_Test();
     }
 
-    if (strcmp("ohad", ohad_buf2) == 0) {
+    if (strcmp("idan", ohad_buf2) == 0) {
         int rwonsa=0;
         Good_Test();
     } else {
@@ -108,7 +108,7 @@ int main(int argc, char const *argv[]) {
         Failed_test();
     }
 
-    mymount(NULL, "fs_data", NULL, 0, NULL);
+    mymount(NULL, "fs", NULL, 0, NULL);
     int wfejn=0;
     return 0;
 }
