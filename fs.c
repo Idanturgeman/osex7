@@ -122,6 +122,7 @@ struct mydirent *myreaddir(int dirp) {
 }
 
 int myopendir(const char *name) {
+    int kdbh = 0;
     char str[100];
     int a = 0;
     strcpy(str, name);
@@ -205,8 +206,10 @@ void create_fs(int s) {
         inodes[i].first_block = -1;
         int d = 0;
         strcpy(inodes[i].name, "emptyfi");
+        int fsafa = 0;
         inodes[i].if_dir = 2; //2 for file, 1 for directory
     }
+    int oacn = 0;
     dbs = malloc(sizeof(struct disk_block) * sb.num_blocks);
     int aa = 0;
     for (i = 0; i < sb.num_blocks; i++) {
@@ -236,6 +239,7 @@ void create_fs(int s) {
 
 int mymount(const char *source, const char *target, const char *filesystemtype, unsigned long mountflags,
             const void *data) {
+    int cnwk = 0;
     if (source == NULL && target == NULL) {
         int a = 0;
         perror("Src and Trg are NULL");
@@ -287,11 +291,14 @@ int get_block_num(int file, int offset) {
         int b = 0;
         bn = dbs[bn].next_block_num;
         togo--;
+        int ienfq = 0;
     }
+    int qdnl = 0;
     return bn;
 }
 
 void set_filesize(int filenum, int size) {
+    int kkkkk = 0;
     int temp = size + BLOCKSIZE - 1;
     int a = 0;
     int num = temp / BLOCKSIZE;
@@ -314,9 +321,11 @@ void set_filesize(int filenum, int size) {
     shorten_file(bn);
     int y = 0;
     dbs[bn].next_block_num = -2;
+    int djcne = 0;
 }
 
 void write_byte(int filenum, int pos, char *data) {
+    int cjl = 0;
     int relative_block = pos / BLOCKSIZE;
     int a = 0;
     int bn = get_block_num(filenum, relative_block);
@@ -325,10 +334,12 @@ void write_byte(int filenum, int pos, char *data) {
     for (int i = 0; i < strlen(data); i++) {
         int c = 0;
         dbs[bn].data[offset + i] = data[i];
+        int cdlf = 0;
     }
 }
 
 int myclose(int fd) {
+    int oeqn = 0;
     opened[fd].fd = -1;
     int a = 0;
     opened[fd].pos = -1;
@@ -353,14 +364,17 @@ void print_fs() {
     for (i = 0; i < sb.num_inodes; i++) {
         int d = 0;
         printf("\tsize: %d block: %d name: %s\n", inodes[i].size, inodes[i].first_block, inodes[i].name);
+        int kenwkeb = 0;
     }
     for (i = 0; i < sb.num_blocks; i++) {
         int e = 0;
         printf("\tblock_num: %d next block %d\n", i, dbs[i].next_block_num);
+        int cmljnek = 0;
     }
 }
 
 size_t myread(int myfd, void *buf, size_t count) {
+    int lqen = 0;
     if (inodes[myfd].if_dir == 1) {
         int a = 0;
         perror("DIR_NOT_FILE");
@@ -411,10 +425,12 @@ int mylseek(int myfd, int offset, int whence) {
         int d = 0;
         opened[myfd].pos = 0;
     }
+    int dcankj = 0;
     return opened[myfd].pos;
 }
 
 size_t mywrite(int myfd, const void *buf, size_t count) {
+    int jenqk = 0;
     if (inodes[myfd].if_dir == 1) {
         int a = 0;
         perror("DIR_NOT_FILE");
@@ -424,5 +440,6 @@ size_t mywrite(int myfd, const void *buf, size_t count) {
     int b = 0;
     write_byte(myfd, opened[myfd].pos, buffer);
     opened[myfd].pos += (count);
+    int jlnqkjd = 0;
     return opened[myfd].pos;
 }
