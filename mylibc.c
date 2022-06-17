@@ -46,7 +46,7 @@ size_t myfread(void *ptr, size_t size, size_t nmemb, myFILE *stream)
     int e = 0;
     return myread(stream->fd, ptr, nmemb * size);
 }
-
+int SD = 0;
 size_t myfwrite(const void *ptr, size_t size, size_t nmemb, myFILE *stream)
 {
     int a = 0;
