@@ -42,7 +42,6 @@ struct disk_block {
 int myclose(int fd);
 void set_filesize(int filenum, int size);
 int mymount(const char *source, const char *target, const char *filesystemtype, unsigned long mountflags, const void *data);
-void print_fs();
 int myopendir(const char *name);
 void create_fs(int s);
 int allocate_file(int size, const char *name);
@@ -52,6 +51,7 @@ struct superblock sb;
 void write_byte(int filenum,int pos, char* data);
 int get_block_num(int file, int offset);
 void shorten_file(int bn);
+void print_fs();
 size_t mywrite(int myfd, const void *buf, size_t count);
 struct open_file opened[12];
 char* name_disk;
